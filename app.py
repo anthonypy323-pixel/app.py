@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import streamlit as st
 
 url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQeZT4gUHYSv3GYZQLKRK0PN3uxfNppGJ8m1QrywlS86WJ-3z6d6toA-nWIF6g2mbsaThrIBYlOnaon/pub?output=csv"
@@ -59,6 +60,9 @@ ax.set_ylabel("Valor")
 ax.set_title(f"Temperatura y humedad ESP32 - {ultimo_dia}")
 ax.legend()
 ax.grid(True)
+
+# Mostrar hora:minuto:segundo en el eje X
+ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
 
 plt.xticks(rotation=45)
 plt.tight_layout()
